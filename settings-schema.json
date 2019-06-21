@@ -1,0 +1,12 @@
+{
+  "services": {
+    "type": "list",
+    "description": "Serviços",
+    "columns":[
+      {"id": "label", "type": "string", "title": "Name"},
+      {"id": "service", "type": "string", "title": "Service"}
+    ],
+    "default":[
+    ]
+  }
+}

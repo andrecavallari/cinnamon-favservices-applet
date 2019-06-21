@@ -1,0 +1,6 @@
+{
+  "postgresql": "PostgreSQL",
+  "nginx": "Nginx",
+  "elasticsearch": "Elasticsearch",
+  "redis": "Redis"
+}
