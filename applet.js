@@ -15,7 +15,7 @@ class MyApplet extends Applet.IconApplet {
     super(orientation, panel_height, instance_id);
     this._orientation = orientation
 
-    this.set_applet_icon_name('bookmark-new-list');
+    this.set_applet_icon_name('green-ok-icon');
     this.set_applet_tooltip(_('Favorite services'));
     this.settings = new Settings.AppletSettings(this, UUID, this.instance_id);
     this.settings.bindProperty(Settings.BindingDirection.IN, "services", "services", this.settingsChanged, null);
