@@ -8,4 +8,4 @@ An working applet for cinnamon applets wich you can start/stop your favorite ser
 * Activate
 
 ## Credits
-* Icon by `Double-J Design`, downloaded from [iconarchive.com](http://www.iconarchive.com/show/origami-colored-pencil-icons-by-double-j-design/green-ok-icon.html)
+* Icon by [Double-J Design](http://www.doublejdesign.co.uk), downloaded from [iconarchive.com](http://www.iconarchive.com/show/origami-colored-pencil-icons-by-double-j-design/green-ok-icon.html)
