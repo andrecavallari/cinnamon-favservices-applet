@@ -44,6 +44,10 @@ class MyApplet extends Applet.IconApplet {
     const [result, out, err] = GLib.spawn_command_line_sync(`sudo systemctl is-active ${service}`)
     return out.toString().replace(/\W/g, '') === 'active'
   }
+
+  on_applet_removed_from_panel(){
+    this.settings.finalize()
+  }
 }
 
 function main(metadata, orientation, panel_height, instance_id) {
