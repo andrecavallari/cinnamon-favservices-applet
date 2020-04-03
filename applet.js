@@ -47,5 +47,5 @@ class MyApplet extends Applet.IconApplet {
 }
 
 function main(metadata, orientation, panel_height, instance_id) {
-    return new MyApplet(orientation, panel_height, instance_id);
+  return new MyApplet(orientation, panel_height, instance_id)
 }
