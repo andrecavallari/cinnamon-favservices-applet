@@ -2,5 +2,5 @@
   "uuid": "favservices@andre.srv.br",
   "name": "Services manager",
   "description": "Applet to manage favorites services",
-  "icon": "bookmark-new-list"
+  "icon": "green-ok-icon"
 }

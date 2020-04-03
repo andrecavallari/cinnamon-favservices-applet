@@ -9,14 +9,13 @@ const Settings = imports.ui.settings;
 
 class MyApplet extends Applet.IconApplet {
   constructor(orientation, panel_height, instance_id){
-    super(orientation, panel_height, instance_id);
+    super(orientation, panel_height, instance_id)
     this._orientation = orientation
-
-    this.set_applet_icon_name('green-ok-icon');
-    this.set_applet_tooltip(_('Favorite services'));
-    this.settings = new Settings.AppletSettings(this, UUID, this.instance_id);
-    this.settings.bindProperty(Settings.BindingDirection.IN, "services", "services", this.settingsChanged, null);
-    this.refresh();
+    this.set_applet_icon_name('green-ok-icon')
+    this.set_applet_tooltip(_('Favorite services'))
+    this.settings = new Settings.AppletSettings(this, UUID, instance_id)
+    this.settings.bindProperty(Settings.BindingDirection.IN, "services", "services")
+    this.refresh()
   }
 
   on_applet_clicked(){
@@ -31,7 +30,7 @@ class MyApplet extends Applet.IconApplet {
 
     this.services.map(item => {
       let { service,  label} = item
-      let isActive = isServiceActive(service)
+      let isActive = this.isServiceActive(service)
       let menuItem = new PopupMenu.PopupSwitchMenuItem(label, isActive)
       menuItem.connect('toggled', function(event){
         let action = event.state? 'start' : 'stop'
@@ -40,13 +39,13 @@ class MyApplet extends Applet.IconApplet {
       this.menu.addMenuItem(menuItem)
     })
   }
+
+  isServiceActive(service) {
+    const [result, out, err] = GLib.spawn_command_line_sync(`sudo systemctl is-active ${service}`)
+    return out.toString().replace(/\W/g, '') === 'active'
+  }
 }
 
 function main(metadata, orientation, panel_height, instance_id) {
     return new MyApplet(orientation, panel_height, instance_id);
-}
-
-function isServiceActive(service) {
-  let [result, out, err] = GLib.spawn_command_line_sync(`sudo systemctl is-active ${service}`)
-  return out.toString().replace(/\W/g, '') === 'active'
 }
