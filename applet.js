@@ -7,9 +7,6 @@ const GLib = imports.gi.GLib;
 const AppletDir = imports.ui.appletManager.appletMeta[UUID].path;
 const Settings = imports.ui.settings;
 
-let [ok, contents] = GLib.file_get_contents(`${AppletDir}/services.json`)
-const services = JSON.parse(contents)
-
 class MyApplet extends Applet.IconApplet {
   constructor(orientation, panel_height, instance_id){
     super(orientation, panel_height, instance_id);
